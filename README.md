@@ -4,21 +4,21 @@ A quick setup guide for deploying streamlit web app with heroku.
 
 # What you need
 
-## 1) testapp.py
+## testapp.py
 ```
 import streamlit as st
 st.title('Test App')
 st.subheader('Author: Jesse Redford')
 ```
-## 2) requirments.txt
+## requirments.txt
 ```
 streamlit==0.74.1
 ```
-## 3) Procfile
+## Procfile
 ```
 web: streamlit run --server.enableCORS false --server.port $PORT testapp.py
 ```
-## 4) setup.sh
+## setup.sh
 ```
 mkdir -p ~/.streamlit/
 
@@ -34,19 +34,21 @@ enableCORS=false\n\
 port = $PORT\n\
 " > ~/.streamlit/config.toml
 ```
-# Deploy your app, (add files above to git repo)
-
-1) cmd
-2) git clone https://github.com/Jesse-Redford/teststreamlit.git
-3) cd teststreamlit
-4) heroku login
-5) heroku create <name of your app>
-6) git add .
-7) git commit -m "first commit"
-8) heroku git:remote -a <name of your app>
-9) git push heroku main
-10) heroku ps:scale web=1
-11) heroku open
+# Deploying your app with Heroku
+Add files above to a git repo and create an Heroku Account / download CLI (open new terminal after download)
+```
+cmd
+git clone https://github.com/Jesse-Redford/teststreamlit.git
+cd teststreamlit
+heroku login
+heroku create <name of your app>
+git add .
+git commit -m "first commit"
+heroku git:remote -a <name of your app>
+git push heroku main
+heroku ps:scale web=1
+heroku open
+```
   
   
   
