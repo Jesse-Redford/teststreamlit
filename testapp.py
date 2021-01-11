@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 st.title('Surface Measurment App')
 st.subheader('Author: Jesse Redford')
 
