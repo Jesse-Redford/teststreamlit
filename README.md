@@ -4,19 +4,36 @@ A quick setup guide for deploying streamlit web app with heroku.
 
 # What you need
 
-1) testapp.py
-    import streamlit as st
-    st.title('Surface Measurment App')
-    st.subheader('Author: Jesse Redford')
+## 1) testapp.py
+```
+import streamlit as st
+st.title('Test App')
+st.subheader('Author: Jesse Redford')
+```
+## 2) requirments.txt
+```
+streamlit==0.74.1
+```
+## 3) Procfile
+```
+web: streamlit run --server.enableCORS false --server.port $PORT testapp.py
+```
+## 4) setup.sh
+```
+mkdir -p ~/.streamlit/
 
-2) requirments.txt
-    streamlit==0.74.1
+echo "\
+[general]\n\
+email = \"jesse.k.redford@gmail.com\"\n\
+" > ~/.streamlit/credentials.toml
 
-3) Procfile
-    web: streamlit run --server.enableCORS false --server.port $PORT testapp.py
-    
-4) setup.sh
-
+echo "\
+[server]\n\
+headless = true\n\
+enableCORS=false\n\
+port = $PORT\n\
+" > ~/.streamlit/config.toml
+```
 # Deploy your app, (add files above to git repo)
 
 1) cmd
